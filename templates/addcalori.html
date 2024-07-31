@@ -1,0 +1,91 @@
+{% extends 'base.html' %}
+{% block content %}
+<br>
+  <div class="jumbotron" id="jumbotronadd">
+    <div class="card card-body" id="cardadd">
+      <form action="" method="POST" >
+        {% csrf_token %}
+        Food Consumed: <select name="food" id="food" style="height: 30px; width: 150px;">
+          <option value="">---Select Below---</option>
+            {% for i in data %}
+            <option id="" name="">{{i}}</option>
+            {% endfor %}
+          </select><br><br>
+        Quantity: <input type="number" name="qty" id="id" required><br><br>
+        &nbsp;&nbsp;&nbsp;<input type="submit"  class="btn btn-warning w-50" id="btnadd" value="Add"><br><br>  
+      </form>
+    </div>
+  </div>
+  <div  id="jumbotrontable">
+    <div  id="cardtable">
+      <table id="table2" class="table table-bordered" cell padding="1" cell spacing="1" >
+        <tr >
+          <th>Name</th>
+          <th>Type</th>
+          <th>Quantity (in gm)</th>
+          <th>Protien (in gm)</th>
+          <th>Carbohydrates (in gm)</th>
+          <th>Fat(in gm)</th>
+          <th>Nutrients</th>
+          <th>Vitamins</th>
+          <th>Edit</th>
+          <th>Delete</th>
+        </tr>
+        {% for i in data1 %}
+        <tr>
+          <td>{{ i.dname }}</td>
+          <td>{{ i.dtype }}</td>
+          <td>{{ i.dquantity }}</td>
+          <td>{{ i.dprotein|floatformat:"2" }}</td>
+          <td>{{ i.dcarbs|floatformat:"2"  }}</td>
+          <td>{{ i.dfat|floatformat:"2"  }}</td>
+          <td>{{ i.dnutrients|floatformat:"2"  }}</td>
+          <td>{{ i.dvitamins }}</td>
+          <td><a href="{% url 'edit' pk=i.id %}" class="btn btn-info" id="edit">edit</a></td>
+          <td><a href="{% url 'delete' pk=i.id %}" class="btn btn-danger" id="delete">delete</a></td>
+        </tr>
+        {% endfor %}
+        <tr>
+          <td colspan="2" align="center"><b>Total</b></td>
+          <td>{{ resqty}} </td>
+          <td>{{ resprotein}}</td>
+          <td>{{ rescarbs}}</td>
+          <td>{{ resfat}}</td>
+          <td colspan="4"></td>
+        </tr>
+      <table>
+    </div>&nbsp;&nbsp;&nbsp;  
+    <div class="card" id="cardpie">
+      <div class="piechart" style="height: 300px; width: 300px;">
+        <div>
+          <canvas id="myChart"></canvas>
+        </div>              
+          <script>
+            const ctx = document.getElementById('myChart');
+          
+            new Chart(ctx, {
+              type: 'pie',
+              data: {
+                labels: [ 'Total protein', 'Total carbohydrates ', 'Total fat'],
+                datasets: [{
+                  label: '',
+                  data: [{{ resprotein}}, {{ rescarbs }}, {{ resfat}} ],
+                  borderWidth: 1
+                }]
+              },
+              options: {
+                scales: {
+                  y: {
+                    beginAtZero: true
+                  }
+                }
+              }
+            });
+          </script>
+      </div>
+    </div>
+  </div>
+  
+
+        
+{% endblock %}

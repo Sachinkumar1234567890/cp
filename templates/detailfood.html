@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="container">
+    <div class="jumbotron"><br>
+        <div class="card card-body" id="details">
+            <div class="contain-img"> 
+                {% if data.foodimg %}
+                    <img src="{{ data.foodimg.url }}" alt="" height="400px" width="400px">
+                {% else %}
+                    <img src="" alt="No Image" height="400px" width="400px">
+                {% endif %}
+            </div>
+            <div class="contain-info">
+                <h5 class="info">Name : {{ data.name }}</h5> 
+                <h5 class="info">Type : {{ data.type }}</h5>
+                <h5 class="info">Quantity : {{ data.quantity }} gram</h5> 
+                <h5 class="info">Protein : {{ data.protein }} gram</h5> 
+                <h5 class="info">Carbohydrates : {{ data.carbs }} gram</h5> 
+                <h5 class="info">Fat : {{ data.fat }} gram</h5>  
+                <h5 class="info">Nutrients : {{ data.nutrients }}</h5>
+                <h5 class="info">Vitamins : {{ data.vitamins }}</h5>
+
+                <form action="{% url 'fav' pk=data.id %}" method="POST">
+                    {% csrf_token %}
+                    {% if fav_food %}
+                    <h5>Remove from favorite:<button id='hbutton'type="hidden" name="food" value="{{ data.pk }}">
+                    <i id='heart'  class='bx bxs-heart' style='color:#ff0000'></i></button></h5>
+                    {% else %}
+                    <h5>Add to favorite: <button id='hbutton'type="hidden" name="food" value="{{ data.pk }}">
+                    <i id='heart' class='bx bx-heart' style='color:#241f1f'  ></i></i></button></h5>
+                    {% endif %}
+                </form>
+
+
+
+                   
+            </div>      
+        </div>
+    </div>
+</div><br>
+
+{% endblock %}

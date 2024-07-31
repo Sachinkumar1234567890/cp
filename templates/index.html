@@ -1,0 +1,48 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<br><div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            {% for i in data %}
+            <div class="col-md-4">
+                <div class="card card-body" id="items">
+                    {% if i.foodimg %}
+                        <img src="{{ i.foodimg.url }}" alt="No Img" height="100px" width="150px">
+                    {% else %}
+                        <h5>No image</h5>
+                    {% endif %}
+                    <h3>{{ i.name }}</h3>
+                    <h3>{{ i.type }}</h3>
+                    <h4><a href="{% url 'detail' pk=i.id %}" type="submit" class="item-a">View more</a></h4>
+                </div><br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+<br>
+<nav aria-label="Page navigation example">
+  <ul class="pagination justify-content-center">
+      <li class="page-item">
+          <a class="page-link" href="?pg=1"><<</a>
+      </li>
+      {% if data.has_previous %}
+      <li class="page-item">
+          <a class="page-link" href="?pg={{ data.previous_page_number }}">{{ data.previous_page_number }}</a>
+      </li>
+      {% endif %}
+      <li class="page-item">
+          <a class="page-link" href="?pg={{ data.number }}">{{ data.number }}</a>
+      </li>
+      {% if data.has_next %}
+      <li class="page-item">
+          <a class="page-link" href="?pg={{ data.next_page_number }}">{{ data.next_page_number }}</a></li>
+      {% endif %}
+      <li class="page-item">
+          <a class="page-link" href="?pg=6">>></a>
+      </li>
+  </ul>
+</nav>
+   
+{% endblock %}

@@ -1,0 +1,247 @@
+ 
+/* .protest-revolution-regular {
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+} */
+  
+body{
+  /* font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal; */
+    background-image: url(/static/images/home.jpg);
+    background-size:cover;
+    background-repeat: no-repeat;
+    /* background-position: center; */
+    opacity: 0.9;
+    align-items: center;
+
+  }
+/* .container{
+  border-radius: 20px;
+  background-color: bisque;
+  box-shadow: 10px 10px rgb(194, 142, 142)  inset;
+  opacity: 0.9; 
+
+}
+.jumbotron{
+  border-radius: 20px;
+  background-color: bisque;
+  box-shadow: 10px 10px rgb(194, 142, 142)  inset;
+  opacity: 0.9; 
+} */
+#card{
+    border-radius: 30px;
+    box-shadow: 2px 5px 30px rgb(232, 198, 198) inset;
+}
+
+#details{
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  height: 500px;
+  width: 90%;
+  display: flex;
+  flex-direction:row;
+  flex-wrap: wrap;
+  align-content:space-evenly;
+}
+.contain-img{
+  height:400px;
+  width:400px;
+  margin-right: 50px;
+
+}
+.contain-info{
+
+  font-family: "Protest Revolution", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  align-content:space-between;
+  height:400px;
+  width:400px;
+}
+.info{
+  height: 40px;
+}
+
+#items:hover{
+  height: 270px;
+  width: 370px;
+}
+#items{
+  height: 250px;
+  background-image: radial-gradient(rgb(255, 220, 220),rgb(227, 227, 255),rgb(236, 255, 236));
+  border-radius: 20px;
+  box-shadow: 10px 10px 20px rgb(85, 84, 84) ;
+}
+.item-a:hover{
+  color: rgb(1, 75, 1);
+  text-decoration: none;
+}
+#newcard{
+  margin-top: 30px;
+  margin-left: 300px;
+  display: flex;
+  align-items: center;
+  /* border: 1px red solid ; */
+  height: 500px;
+  margin-bottom: 30px;
+  background-image: linear-gradient(rgb(255, 233, 233),rgb(255, 238, 195));
+  border-radius: 30px;
+  box-shadow: 5px 10px 20px rgb(255, 207, 168) inset;
+  border: none;
+}
+#newfood{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px; 
+  width:500px;
+  /* border: 1px goldenrod solid; */
+}
+
+/* .contain-img img:hover{
+  animation: rt 3s forwards; 
+} */
+#jumbotronadd{
+  margin-left: 30px;
+  height: 250px;
+  display: flex;
+  width: 1200px;
+  align-content: center;
+}
+#cardadd{
+  background-image: linear-gradient(pink,rgb(236, 236, 148));
+  margin-top: 30px;
+  margin-right: 350px;
+  margin-left: 350px;
+  border: none;
+  height: 200px;
+  align-items: center;
+  border-radius: 30px;
+  box-shadow: 0px 0px 10px rgb(35, 34, 34) ;
+  
+}#btnadd:hover{
+  border: 1px rgb(102, 102, 0) solid;
+  background-color: rgb(249, 247, 205);
+  color: rgb(252, 210, 0);
+}
+#jumbotrontable{
+  margin-left: 30px;
+  margin-bottom: 30px;
+  width: 1200px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 5px 0px 20px  rgb(247, 60, 91) ;
+
+}
+#cardtable{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  position: relative;
+  width: 1300px;
+  background-color: white;
+  border-radius: 30px;
+  box-shadow: 5px 0px 20px black  ;
+
+}
+#cardpie{
+  position: relative;
+  width: 400px;
+  height: 480px;
+  background-color: white;
+  border: none;
+  
+}
+#table2{
+  margin-top: 5px;
+  margin-left: 15px;
+  width: 600px;
+  background-color: white;
+  font-size: 12px;
+  
+}
+#edit{
+  border: 1px blue solid;
+  background-color: aliceblue;
+}
+#edit:hover{
+  background-color: rgb(96, 96, 247);
+  color: white;
+}
+#delete{
+  border: 1px red solid;
+  background-color: aliceblue;  
+  color: red;
+}
+#delete:hover{
+  background-color: red;  
+  color: white;
+}
+#hbutton{
+  background-color: white;
+  border: none;
+}
+#heart{
+  font-size: 30px;
+}
+
+/* 
+@keyframes rt {
+  0%{
+      transform:scale(.6);
+      opacity: 0;
+  }
+  100%{
+      transform: scale(1);
+      opacity: 1;
+  }  
+} */
+/* .contain-info:hover{
+animation: inf 3s ease-out;
+} */
+#editcard{
+  margin-top: 30px;
+  margin-left: 300px;
+  display: flex;
+  align-items: center;
+  height: 450px;
+  margin-bottom: 30px;
+  background-image: linear-gradient(rgb(255, 233, 233),rgb(255, 238, 195));
+  border-radius: 30px;
+  box-shadow: 5px 5px 20px rgb(91, 73, 59) ;
+  border: none;
+  width:600px;
+}
+#editform{
+  display: flex;
+  flex-direction: column;
+  margin-left: 30px; 
+  width:500px;
+}
+#anchor:hover{
+  color: blueviolet;
+}
+.food{
+  background-color: white;
+  border: none;
+  box-shadow: 20px 10px red inset;
+
+}
+/* @keyframes inf{
+  0%{
+    transform: translateX(100px);
+    opacity: 0;
+}
+100%{
+    transform: translateX(0px);
+    opacity: 1;
+}    
+} */

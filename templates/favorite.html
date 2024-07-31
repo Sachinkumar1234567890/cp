@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<br><div class="container">
+    <div class="jumbotron">
+        <div class="row">
+            {% for food in data %}
+            <div class="col-md-4">
+                <div class="card card-body">
+                    <img src="{{food.foodimg.url}}" alt="no image" height="150px" width="150px"><br>
+                    <h3>Name:{{food.name}}</h3>
+                    <h3>Type:{{food.type}}</h3>
+                    <a href="{% url 'detail' pk=food.id %}">Show more</a>
+                </div><br>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+
+{% endblock %}
