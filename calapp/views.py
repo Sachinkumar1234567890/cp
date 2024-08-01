@@ -10,8 +10,11 @@ from django.core.paginator import Paginator
 def getfood(request):
     data=foodModel.objects.all()
     paginator=Paginator(data,3)
-    page=request.GET.get("pg")
-    data=paginator.get_page(page)
+    page=request.GET.get('pg')
+    try:
+        data=paginator.get_page(page)
+    except:
+        data=paginator.get_page(1)
     return render(request,'index.html',{'data':data})
 
 
