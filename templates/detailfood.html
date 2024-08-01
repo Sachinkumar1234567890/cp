@@ -18,22 +18,8 @@
                 <h5 class="info">Carbohydrates : {{ data.carbs }} gram</h5> 
                 <h5 class="info">Fat : {{ data.fat }} gram</h5>  
                 <h5 class="info">Nutrients : {{ data.nutrients }}</h5>
-                <h5 class="info">Vitamins : {{ data.vitamins }}</h5>
-
-                <form action="{% url 'fav' pk=data.id %}" method="POST">
-                    {% csrf_token %}
-                    {% if fav_food %}
-                    <h5>Remove from favorite:<button id='hbutton'type="hidden" name="food" value="{{ data.pk }}">
-                    <i id='heart'  class='bx bxs-heart' style='color:#ff0000'></i></button></h5>
-                    {% else %}
-                    <h5>Add to favorite: <button id='hbutton'type="hidden" name="food" value="{{ data.pk }}">
-                    <i id='heart' class='bx bx-heart' style='color:#241f1f'  ></i></i></button></h5>
-                    {% endif %}
-                </form>
-
-
-
-                   
+                <h5 class="info">Vitamins : {{ data.vitamins }}</h5>  <br>
+                <a href="{% url 'deletef' pk=data.id %}" class="btn btn-danger" id="delete" style="width: 100px;">delete</a>
             </div>      
         </div>
     </div>

@@ -13,11 +13,7 @@ class editfoodform(forms.ModelForm):
         model=dailycalory
         fields=['dname','dtype','dquantity','dprotein','dcarbs','dfat','dnutrients','dvitamins']
 
-class register_form(forms.ModelForm):
-    password=forms.CharField(max_length=100,widget=forms.PasswordInput)
-    class Meta:
-        model=user_register
-        fields=['name','phone','email','password','confirm_password']
+
 
 
 

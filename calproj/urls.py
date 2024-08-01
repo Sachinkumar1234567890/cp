@@ -24,14 +24,14 @@ from django.conf import settings
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("",views.getfood,name='index'),
-    path("register/",views.register,name='register'),
     path("newfood/",views.newfood,name='newfood'),
     path("addcalori/",views.addcalori,name='addcalori'),
     path('edit/<int:pk>/',views.editcal,name='edit'),
     path('delete/<int:pk>/',views.deletecal,name='delete'),
+    path('deletef/<int:pk>/',views.deletefood,name='deletef'),
     path('detail/<int:pk>/',views.detailfood,name='detail'),
-    path('fav/<int:pk>/',views.fav_page,name='fav'),
-    path('favorite_page/',views.favorite_page,name="favorite_page"),
-
 
 ]+static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
+urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+

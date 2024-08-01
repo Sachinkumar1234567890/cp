@@ -18,6 +18,8 @@ class foodModel(models.Model):
     def __str__(self):
         return self.name
     
+
+    
 class dailycalory(models.Model):
     dname=models.CharField(max_length=100)
     dtype=models.CharField(max_length=100)
@@ -27,16 +29,13 @@ class dailycalory(models.Model):
     dfat=models.FloatField()
     dnutrients=models.FloatField()
     dvitamins=models.CharField(max_length=100)
+    updated_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return  self.dname
     
-class user_register(models.Model):
-    name=models.CharField(max_length=100)
-    phone=models.IntegerField()
-    email=models.EmailField()
-    password=models.CharField(max_length=100)
-    confirm_password=models.CharField(max_length=100)
+    class Meta:
+        ordering = ['-updated_at']
+    
+    
 
-    def __str__(self) -> str:
-        return self.name

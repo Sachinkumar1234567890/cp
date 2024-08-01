@@ -4,4 +4,3 @@ from .models import *
 
 admin.site.register(foodModel)
 admin.site.register(dailycalory)
-admin.site.register(user_register)

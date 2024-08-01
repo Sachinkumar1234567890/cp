@@ -15,20 +15,6 @@ def getfood(request):
     return render(request,'index.html',{'data':data})
 
 
-def register(request):
-    registered= False
-    if request.method == 'POST':
-        form=register_form(request.POST,request.FILES)
-        if form.is_valid():
-            user=form.save()
-            user.set_password(user.password)
-            form.save()
-            registered=True
-            redirect('/')
-    else:
-        form=register_form()
-    return render(request,'register.html',{'form':form,'registered':registered})
-
 def newfood(request):
     if request.method == "POST":
         form=newfoodform(request.POST,request.FILES)
@@ -109,18 +95,10 @@ def detailfood(request,pk):
     fav_food= is_fav
     return render(request,'detailfood.html',{'data':data,'fav_food':fav_food})
 
-def fav_page(request,pk):
-    var=get_object_or_404(foodModel,id=request.POST.get('food'))
-    if var.fav.filter(id=request.user.id).exists():
-        var.fav.remove(request.user)
-    else:
-        var.fav.add(request.user)
-    return redirect('detail',pk=pk)
-
-def favorite_page(request):
-    data=foodModel.objects.filter(fav=request.user)
-    return render(request,'favorite.html',{'data':data})
-
+def deletefood(request,pk):
+    data1=foodModel.objects.get(id=pk)
+    data1.delete()
+    return redirect('/')
 
 
 
