@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-l$sv8i%54*-ae$j=a)jty6jg06_4=@5gya!^+!asd*6&!&03ci
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*','.vercel.app']
+ALLOWED_HOSTS = ['127.0.0.1', '.vercel.app']
 
 
 # Application definition
@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'calapp',
+    'example',
 ]
 
 MIDDLEWARE = [
@@ -71,7 +72,8 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'calproj.wsgi.application'
+WSGI_APPLICATION = 'api.wsgi.app'
+
 
 
 # Database
